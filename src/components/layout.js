@@ -17,7 +17,6 @@ import HCAMain from './hcaMain/hcaMain';
 
 // Styles
 import compStyles from './layout.module.css';
-import globalStyles from '../styles/global.module.css';
 
 let classNames = require('classnames');
 
@@ -52,7 +51,7 @@ class Layout extends React.Component {
 				<div className={classNames(compStyles.site, {[compStyles.noScroll]: this.state.noScroll})}>
 					<Header onMenuOpen={this.onMenuOpen.bind(this)} homePage={homePage}/>
 					<Banner position={'top'} healthy={healthy}/>
-					{homePage ? <div className={globalStyles.pageWrapper}>{children}</div> :
+					{homePage ? children :
 						<HCAMain docPath={docPath} homeTab={homeTab} noNav={noNav} noTab={noTab}
 								 sectionTitle={sectionTitle}>{children}</HCAMain>}
 					<Banner position={'bottom'}/>
